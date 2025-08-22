@@ -15,12 +15,11 @@ Create a detailed, step-by-step task list in Markdown format based on an existin
 1. Analyze PRD requirements and user stories
 2. Assess current codebase state and existing components
 3. Generate parent tasks, present to user
-4. Wait for user "Go" confirmation  
-5. Generate detailed sub-tasks with implementation details
-6. Use WebSearch to research documentation and testing strategies
-7. Identify relevant files and testing approaches
-8. Create final output with consistent task numbering for `/next-task` integration
-9. Save to `/tasks/tasks-[prd-name].md`
+4. Generate detailed sub-tasks with implementation details
+5. Use WebSearch to research documentation and testing strategies
+6. Identify relevant files and testing approaches
+7. Create final output with consistent task numbering for `/next-task` integration
+8. Save to `/tasks/tasks-[prd-name].md`
 
 ## Output Format
 
