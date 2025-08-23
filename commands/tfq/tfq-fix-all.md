@@ -1,5 +1,8 @@
 # /tfq-fix-all - Complete Automated Test Fixing
 
+## Context
+- Target directory: "$DIRECTORY" (defaults to repository root if not specified)
+
 ## Description
 Runs tests to discover failures, then iteratively fixes each test one by one until the queue is empty or maximum iterations are reached.
 
@@ -9,6 +12,10 @@ Runs tests to discover failures, then iteratively fixes each test one by one unt
 - Clear queue on success
 
 ## Implementation
+
+### Step 0: Change Directory (if target provided)
+If `$DIRECTORY` is provided:
+- Use the Bash tool to execute `cd "$DIRECTORY"` to change to the target directory
 
 ### Step 1: Clear Queue and Run Tests (Task Agent)
 Launch a Task agent to:

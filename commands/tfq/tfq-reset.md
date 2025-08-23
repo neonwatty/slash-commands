@@ -1,11 +1,18 @@
 # /tfq-reset - Reset Test Queue
 
+## Context
+- Target directory: "$DIRECTORY" (defaults to repository root if not specified)
+
 ## Description
 Clears the test failure queue using the tfq CLI.
 
 ## Implementation
 
-### Clear Entire Queue
+### 1. Change Directory (if target provided)
+If `$DIRECTORY` is provided:
+- Use the Bash tool to execute `cd "$DIRECTORY"` to change to the target directory
+
+### 2. Clear Entire Queue
 Use the Bash tool to execute:
 ```bash
 tfq clear --confirm

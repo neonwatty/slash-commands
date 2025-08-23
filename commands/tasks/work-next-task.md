@@ -2,20 +2,21 @@
 
 ## Context
 
-- Task number to work on: "$ARGUMENT"
+- Task number to work on: "$TASK" (optional)
+- Target directory: "$DIRECTORY" (optional)
 
 ## Goal
 Help developers work on tasks with auto-fetched documentation context and implementation guidance.
 
 ## Usage
 ```
-/next-task [optional-task-number]
+/next-task [optional-task-number] [optional-directory]
 ```
 
 ## Process
 
 1. **Task Discovery & Validation**
-   - If $ARGUMENT provided: Validate argument format and find specified task
+   - If $TASK provided: Validate argument format and find specified task
    - Else: Search for task files in `.taskmaster/tasks/`, `tasks/`, `.claude/tasks/` directories
    - If no task file found or invalid argument, return clear error message with available options
 
@@ -42,7 +43,19 @@ Help developers work on tasks with auto-fetched documentation context and implem
    - If validation fails: Create specific fix todos, maintain task as `in_progress`
    - If validation succeeds: Mark all todos `completed`, mark task complete in task file
 
-6. **Error Recovery**
+6. **Automated Test Fixing**
+   - If `$DIRECTORY` is provided: Use Task tool to execute `/tfq:tfq-fix-all $DIRECTORY`
+   - Else: Use Task tool to execute `/tfq:tfq-fix-all` (runs in current directory)
+   - This runs comprehensive test fixing for the target directory after implementation
+   - Update TodoWrite status based on test fixing results
+
+7. **Second Round Test Fixing**
+   - If `$DIRECTORY` is provided: Use Task tool to execute `/tfq:tfq-fix-all $DIRECTORY`
+   - Else: Use Task tool to execute `/tfq:tfq-fix-all` (runs in current directory)
+   - This ensures any remaining test failures are addressed
+   - Update TodoWrite status based on test fixing results
+
+8. **Error Recovery**
    - On any failure: Preserve current state, create specific recovery todos
    - Never mark task complete unless all validation passes
    - Provide clear next steps for manual intervention if needed

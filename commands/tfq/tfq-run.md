@@ -1,17 +1,24 @@
 # /tfq-run - Run Tests and Populate Queue
 
+## Context
+- Target directory: "$DIRECTORY" (defaults to repository root if not specified)
+
 ## Description
 Runs all tests in the project and automatically adds failing tests to the TFQ queue for processing.
 
 ## Implementation
 
-### 1. Run Tests with Auto-Add
+### 1. Change Directory (if target provided)
+If `$DIRECTORY` is provided:
+- Use the Bash tool to execute `cd "$DIRECTORY"` to change to the target directory
+
+### 2. Run Tests with Auto-Add
 Use the Bash tool to execute:
 ```bash
 tfq run-tests --auto-detect --auto-add --json
 ```
 
-### 2. Display Queue Status
+### 3. Display Queue Status
 Use the Bash tool to execute:
 ```bash
 tfq list --json
