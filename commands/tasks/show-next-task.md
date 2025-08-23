@@ -3,7 +3,7 @@
 ## Context
 
 - Task number to show: "$TASK" (optional)
-- Tasks directory: "$DIRECTORY" (defaults to /tasks if not specified)
+- Tasks directory: "$TASKS_DIR" (defaults to /tasks if not specified)
 
 ## Goal
 Display the next task from the task list for user review without taking any implementation action.
@@ -13,11 +13,18 @@ Display the next task from the task list for user review without taking any impl
 /see-next-task [optional-task-number] [optional-tasks-directory]
 ```
 
+## Examples
+```
+/see-next-task                           # Next task from /tasks
+/see-next-task 5                         # Task 5 from /tasks  
+/see-next-task "" ./my-tasks             # Next task from ./my-tasks
+```
+
 ## Process
 
 1. **Task Discovery**
-   - If $TASK provided: Find and display the specified task in `$DIRECTORY` (defaults to `/tasks`)
-   - Else: Find and display the next task number in `$DIRECTORY` (defaults to `/tasks`)
+   - If $TASK provided: Find and display the specified task in `$TASKS_DIR` (defaults to `/tasks`)
+   - Else: Find and display the next task number in `$TASKS_DIR` (defaults to `/tasks`)
    - If no task file found or invalid argument, return clear error message with available options
 
 2. **Task Display**
