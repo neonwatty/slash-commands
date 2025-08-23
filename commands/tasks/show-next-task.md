@@ -2,21 +2,22 @@
 
 ## Context
 
-- Task number to show: "$ARGUMENT"
+- Task number to show: "$TASK" (optional)
+- Tasks directory: "$DIRECTORY" (defaults to /tasks if not specified)
 
 ## Goal
 Display the next task from the task list for user review without taking any implementation action.
 
 ## Usage
 ```
-/see-next-task [optional-task-number]
+/see-next-task [optional-task-number] [optional-tasks-directory]
 ```
 
 ## Process
 
 1. **Task Discovery**
-   - If $ARGUMENT provided: Find and display the specified task
-   - Else: Search for task files in `tasks/`, `.claude/tasks/`, `.taskmaster/tasks/` directories
+   - If $TASK provided: Find and display the specified task in `$DIRECTORY` (defaults to `/tasks`)
+   - Else: Find and display the next task number in `$DIRECTORY` (defaults to `/tasks`)
    - If no task file found or invalid argument, return clear error message with available options
 
 2. **Task Display**

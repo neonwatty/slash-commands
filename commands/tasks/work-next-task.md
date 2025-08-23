@@ -3,21 +3,21 @@
 ## Context
 
 - Task number to work on: "$TASK" (optional)
-- Target directory: "$DIRECTORY" (optional)
+- Tasks directory: "$DIRECTORY" (defaults to /tasks if not specified)
 
 ## Goal
 Help developers work on tasks with auto-fetched documentation context and implementation guidance.
 
 ## Usage
 ```
-/next-task [optional-task-number] [optional-directory]
+/next-task [optional-task-number] [optional-tasks-directory]
 ```
 
 ## Process
 
 1. **Task Discovery & Validation**
-   - If $TASK provided: Validate argument format and find specified task
-   - Else: Search for task files in `.taskmaster/tasks/`, `tasks/`, `.claude/tasks/` directories
+   - If $TASK provided: Validate argument format and find specified task in `$DIRECTORY` (defaults to `/tasks`)
+   - Else: Find and work on the next task number in `$DIRECTORY` (defaults to `/tasks`)
    - If no task file found or invalid argument, return clear error message with available options
 
 2. **TodoWrite Initialization (Single-Threaded Execution)**
