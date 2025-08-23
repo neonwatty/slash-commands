@@ -1,0 +1,12 @@
+{
+  "name": "simple-calculator",
+  "version": "1.0.0",
+  "description": "A simple calculator for E2E testing",
+  "main": "src/calculator.js",
+  "scripts": {
+    "test": "node test/calculator.test.js"
+  },
+  "keywords": ["calculator", "test"],
+  "author": "Test Suite",
+  "license": "MIT"
+}

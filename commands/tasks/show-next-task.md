@@ -10,14 +10,14 @@ Display the next task from the task list for user review without taking any impl
 
 ## Usage
 ```
-/see-next-task [optional-task-number] [optional-tasks-directory]
+/show-next-task [optional-task-number] [optional-tasks-directory]
 ```
 
 ## Examples
 ```
-/see-next-task                           # Next task from /tasks
-/see-next-task 5                         # Task 5 from /tasks  
-/see-next-task "" ./my-tasks             # Next task from ./my-tasks
+/show-next-task                           # Next task from /tasks
+/show-next-task 5                         # Task 5 from /tasks  
+/show-next-task "" ./my-tasks             # Next task from ./my-tasks
 ```
 
 ## Process
